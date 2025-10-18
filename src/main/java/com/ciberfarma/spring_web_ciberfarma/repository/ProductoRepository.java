@@ -8,4 +8,8 @@ import com.ciberfarma.spring_web_ciberfarma.model.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
 	List<Producto> findAllByOrderByIdProductoDesc();
+	
+	//Filtro por Id Categoria y ordenamiento por Id Producto
+	List<Producto> findAllByCategoria_IdCategoriaOrderByIdProducto(Integer idCategoria);
+	
 }

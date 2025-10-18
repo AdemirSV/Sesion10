@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ciberfarma.spring_web_ciberfarma.dto.ProductoFilterDto;
 import com.ciberfarma.spring_web_ciberfarma.model.Producto;
 import com.ciberfarma.spring_web_ciberfarma.service.CategoriaService;
 import com.ciberfarma.spring_web_ciberfarma.service.ProductoService;
@@ -31,8 +32,10 @@ public class ProductoController {
 	private ProveedorService proveedorService;
 	
 	@GetMapping("listado")
-	public String listado(Model model) {
-		model.addAttribute("lstProducto", productoService.getAll());
+	public String listado(@ModelAttribute ProductoFilterDto filtro,Model model) {
+		model.addAttribute("lstProducto", productoService.search(filtro));
+		model.addAttribute("lstCategoria",categoriaService.getAll());
+		model.addAttribute("filtro",new ProductoFilterDto());
 		return "producto/listado";
 	}
 	
