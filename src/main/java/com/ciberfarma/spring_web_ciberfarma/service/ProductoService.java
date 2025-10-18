@@ -21,9 +21,8 @@ public class ProductoService {
 	}
 	
 	public List<Producto> search(ProductoFilterDto filtro){
-		return productoRepository.findAllByCategoria_IdCategoriaOrderByIdProducto(filtro.getIdCategoria());
+		return productoRepository.findAllByFilters(filtro.getIdCategoria(),filtro.getIdProveedor());
 	}
-	
 	
 	public ResultadoResponse create(Producto producto) {
 		try {

@@ -35,6 +35,7 @@ public class ProductoController {
 	public String listado(@ModelAttribute ProductoFilterDto filtro,Model model) {
 		model.addAttribute("lstProducto", productoService.search(filtro));
 		model.addAttribute("lstCategoria",categoriaService.getAll());
+		model.addAttribute("lstProveedor", proveedorService.getAll());
 		model.addAttribute("filtro",new ProductoFilterDto());
 		return "producto/listado";
 	}

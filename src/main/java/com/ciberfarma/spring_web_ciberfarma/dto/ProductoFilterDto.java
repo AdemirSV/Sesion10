@@ -7,5 +7,6 @@ import lombok.Setter;
 public class ProductoFilterDto {
 	
 	private Integer idCategoria;
+	private Integer idProveedor;
 
 }

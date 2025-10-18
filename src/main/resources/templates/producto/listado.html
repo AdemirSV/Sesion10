@@ -33,19 +33,33 @@
 								<div class="col-md-3">
 									<label for="idCategoria" class="form-label">Categoria</label>
 									<div class="input-group">
-										<span class="input-group-text"><i
-												class="fa-solid fa-tags"></i></span> <select
+										<span class="input-group-text"><i class="fa-solid fa-tags"></i></span> <select
 											class="form-select" th:field="*{idCategoria}">
 											<option value="">--Todos--</option>
-											<option th:each="item:${lstCategoria}" th:value="${item.idCategoria}" th:text="${item.descripcion}"></option>
+											<option th:each="item:${lstCategoria}" th:value="${item.idCategoria}"
+												th:text="${item.descripcion}"></option>
 										</select>
 									</div>
 								</div>
+
+								<div class="col-md-3">
+									<label for="proveedor" class="form-label">Proveedor</label>
+									<div class="input-group">
+										<span class="input-group-text"><i class="fa-solid fa-truck-fast"></i></span>
+										<select class="form-select" th:field="*{idProveedor}">
+											<option value="" >--Todos--	</option>
+											<option th:each="item:${lstProveedor}" th:value="${item.idProveedor}"
+												th:text="${item.razonSocial}">
+											</option>
+										</select>
+									</div>
+								</div>
+
 								<div class="col-md-6 text-end">
 									<button type="submit" class="btn btn-outline-dark">
 										<i class="fa-solid fa-binoculars"></i> Buscar
 									</button>
-									<a  class="btn btn-outline-secondary">
+									<a class="btn btn-outline-secondary">
 										<i class="fa-solid fa-broom"></i> Limpiar
 									</a>
 								</div>
