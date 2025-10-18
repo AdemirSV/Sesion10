@@ -73,12 +73,12 @@
 		$(function () {
 		    $('#tbl-producto').DataTable({
 		        language: {
-		            url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json'
+		            url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json',
+					search:"Filtrar"
 		        },
 		        pageLength: 10,
 		        lengthMenu: [5, 10, 25, 50],
 		        ordering: true,
-		        //order: [[0, 'desc']],
 		        responsive: true,
 		        columnDefs: [
 		            { targets: [1, 4, 5], orderable: false },
