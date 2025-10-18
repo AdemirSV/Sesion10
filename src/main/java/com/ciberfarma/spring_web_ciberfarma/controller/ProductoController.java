@@ -36,7 +36,7 @@ public class ProductoController {
 		model.addAttribute("lstProducto", productoService.search(filtro));
 		model.addAttribute("lstCategoria",categoriaService.getAll());
 		model.addAttribute("lstProveedor", proveedorService.getAll());
-		model.addAttribute("filtro",new ProductoFilterDto());
+		model.addAttribute("filtro",filtro);
 		return "producto/listado";
 	}
 	

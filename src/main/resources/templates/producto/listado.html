@@ -1,16 +1,6 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/layout :: layoutBase(~{::contenido}, ~{::scripts})">
 
-<head>
-	<title>Ejemplos Prof. Ernesto Arbulú</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
-
-<body>
+<th:block th:fragment="contenido">
 	<div class="container mt-5">
 		<div class="card shadow-lg">
 			<div class="card-body">
@@ -47,7 +37,7 @@
 									<div class="input-group">
 										<span class="input-group-text"><i class="fa-solid fa-truck-fast"></i></span>
 										<select class="form-select" th:field="*{idProveedor}">
-											<option value="" >--Todos--	</option>
+											<option value="">--Todos-- </option>
 											<option th:each="item:${lstProveedor}" th:value="${item.idProveedor}"
 												th:text="${item.razonSocial}">
 											</option>
@@ -109,31 +99,30 @@
 		</div>
 	</div>
 	<th:block th:utext="${toast}"></th:block>
-	<!-- para el datatable -->
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
-	<script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
+</th:block>
+<th:block th:fragment="scripts">
+<!-- para el datatable -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
 
-	<script>
-		$(function () {
-			$('#tbl-producto').DataTable({
-				language: {
-					url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json',
-					search: "Filtrar"
-				},
-				pageLength: 10,
-				lengthMenu: [5, 10, 25, 50],
-				ordering: true,
-				responsive: true,
-				columnDefs: [
-					{targets: [1, 4, 5], orderable: false},
-					{targets: [0, 2, 5], searchable: false}
-				]
-			});
+<script>
+	$(function () {
+		$('#tbl-producto').DataTable({
+			language: {
+				url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json',
+				search: "Filtrar"
+			},
+			pageLength: 10,
+			lengthMenu: [5, 10, 25, 50],
+			ordering: true,
+			responsive: true,
+			columnDefs: [
+				{targets: [1, 4, 5], orderable: false},
+				{targets: [0, 2, 5], searchable: false}
+			]
 		});
+	});
 
-	</script>
-</body>
-
-</html>
+</script></th:block>
